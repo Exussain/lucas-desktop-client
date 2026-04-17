@@ -8,6 +8,18 @@
 1. `npm install`
 2. `npm run dev`
 
+## Docker Validation
+- `npm run docker:client-check`:
+  Builds the full workspace inside Docker and verifies client/server compile.
+- `npm run docker:server-up`:
+  Starts the local API server container on `0.0.0.0:8787`.
+- `npm run docker:server-down`:
+  Stops containers created by the compose file.
+
+Windows note:
+- Docker improves reproducibility, but it does not guarantee runtime behavior on every Windows 11 machine.
+- For release confidence, pair Docker checks with real Windows 11 smoke tests in CI/VM (install + launch + API connectivity).
+
 ## Build Windows x64
 - Ensure Rust toolchain + Tauri prerequisites are installed.
 - `npm run tauri:build`

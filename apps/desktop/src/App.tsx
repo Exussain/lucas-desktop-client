@@ -67,7 +67,11 @@ function App() {
   }, [canLoadData, filters]);
 
   async function handleConnect() {
-    if (!tokenInput.trim()) return;
+    if (!tokenInput.trim()) {
+      setError("Enter a session token. In local test mode, any non-empty value is accepted.");
+      setStatus("Token required");
+      return;
+    }
     setConnecting(true);
     setError(null);
     setStatus("Authorizing");
@@ -188,6 +192,9 @@ function ConnectionGate({
       <div className="gate-form">
         <h2>Secure Uplink</h2>
         <p>Authorized desktop session via external admin permissions</p>
+        <p className="hint">
+          Local test mode: any non-empty token works when admin panel URL is not configured.
+        </p>
         <input
           type="password"
           value={tokenInput}

@@ -35,7 +35,7 @@ export class MahsaBridgeService {
       this.sources.map((url) =>
         limit(async () => {
           try {
-            const res = await axios.get(url, { timeout: 12000 });
+            const res = await axios.get(url, { timeout: 3000 });
             return Array.isArray(res.data) ? res.data : res.data?.items ?? res.data?.features ?? [];
           } catch {
             return [];

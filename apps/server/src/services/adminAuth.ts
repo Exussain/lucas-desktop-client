@@ -19,7 +19,7 @@ export class AdminAuthorizationService {
       `${this.baseUrl}/desktop/session/permissions`,
       { userToken },
       {
-        timeout: 12000,
+        timeout: 3000,
         headers: {
           Authorization: `Bearer ${this.token}`,
           "Content-Type": "application/json"

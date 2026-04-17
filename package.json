@@ -10,7 +10,10 @@
     "dev": "concurrently -n server,desktop -c green,blue \"npm:dev -w apps/server\" \"npm:dev -w apps/desktop\"",
     "build": "npm run build -w apps/server && npm run build -w apps/desktop",
     "tauri:dev": "npm run tauri:dev -w apps/desktop",
-    "tauri:build": "npm run tauri:build -w apps/desktop"
+    "tauri:build": "npm run tauri:build -w apps/desktop",
+    "docker:client-check": "docker compose -f docker-compose.test.yml build client-check && docker compose -f docker-compose.test.yml run --rm client-check",
+    "docker:server-up": "docker compose -f docker-compose.test.yml up -d lucas-server",
+    "docker:server-down": "docker compose -f docker-compose.test.yml down"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"

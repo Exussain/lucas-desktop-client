@@ -5,7 +5,7 @@ export class SocialImageService {
     try {
       const res = await axios.get("https://duckduckgo.com/i.js", {
         params: { q: keyword, o: "json" },
-        timeout: 8000
+        timeout: 2500
       });
       const results = Array.isArray(res.data?.results) ? res.data.results : [];
       return results.slice(0, 6).map((r: any) => String(r.image)).filter(Boolean);
